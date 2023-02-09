@@ -5,6 +5,7 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import Validation from 'src/app/utils/validation';
 
 @Component({
   selector: 'app-register',
@@ -26,18 +27,26 @@ export class RegisterComponent implements OnInit {
   constructor(private formBuilder: FormBuilder) {}
 
   ngOnInit(): void {
-    this.registerForm = this.formBuilder.group({
-      username: ['', [Validators.required]],
-      surname: ['', [Validators.required]],
-      email: [
-        '',
-        Validators.compose([
-          Validators.required,
-          Validators.pattern(this.emailpattern),
-        ]),
-      ],
-      password: ['', [Validators.required, Validators.minLength(6)]],
-      confirmPassword: ['', [Validators.required, Validators.minLength(6)]],
-    });
+    this.registerForm = this.formBuilder.group(
+      {
+        username: ['', [Validators.required]],
+        surname: ['', [Validators.required]],
+        email: [
+          '',
+          Validators.compose([
+            Validators.required,
+            Validators.pattern(this.emailpattern),
+          ]),
+        ],
+        password: [
+          '',
+          Validators.compose([Validators.required, Validators.minLength(6)]),
+        ],
+        confirmPassword: ['', [Validators.required]],
+      },
+      {
+        validator: [Validation.passwordCheck('password', 'confirmPassword')],
+      }
+    );
   }
 }
