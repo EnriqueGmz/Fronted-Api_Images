@@ -1,0 +1,151 @@
+* {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+header {
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background-color: #665ab5;
+  position: fixed;
+  z-index: 1;
+}
+
+.container {
+  display: flex;
+  width: 80%;
+  height: 100%;
+  margin: auto;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#boton_menu {
+  display: none;
+}
+
+header label {
+  display: none;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo ul a {
+  margin-left: 15px;
+  color: #fff;
+  font-size: 30px;
+  letter-spacing: 2px;
+  text-decoration: 0;
+}
+
+.logo ul:hover {
+  cursor: pointer;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.logo ul {
+  display: inline-block;
+  transition: all 0.5s linear;
+  margin: 0;
+  padding: 5px;
+}
+
+.menu ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: block;
+}
+
+.menu li {
+  display: flex;
+  transition: all 0.5s linear;
+}
+
+.menu li:hover {
+  cursor: pointer;
+  border-radius: 8px;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.menu li a {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  color: #fff8dc;
+  padding: 5px 10px;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.menu .nav_menu div {
+  display: flex;
+}
+
+@media only screen and (max-width: 1024px) {
+  header {
+    height: fit-content;
+  }
+
+  .logo ul a {
+    font-size: 25px;
+  }
+
+  .menu .nav_menu {
+    display: block;
+  }
+
+  .menu li {
+    display: block;
+    padding: 2px 2px;
+  }
+
+  .menu li a {
+    font-size: 10px;
+    margin: auto;
+  }
+}
+
+@media only screen and (max-width: 640px) {
+  .logo figure {
+    margin-left: 10px;
+  }
+
+  .logo ul a {
+    font-size: 20px;
+  }
+
+  .menu {
+    display: flex;
+    align-items: center;
+  }
+
+  .container label {
+    display: flex;
+  }
+
+  .menu .nav_menu div {
+    display: block;
+  }
+
+  .menu li {
+    display: none;
+    font-size: 8px;
+    padding: 5px 2px;
+  }
+  .menu li a {
+    padding: 0px 5px;
+  }
+
+  #boton_menu:checked + .nav_menu li {
+    display: block;
+  }
+
+}
