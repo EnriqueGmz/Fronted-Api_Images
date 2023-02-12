@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {
+  AbstractControl,
   FormBuilder,
   FormControl,
   FormGroup,
@@ -48,5 +49,25 @@ export class RegisterComponent implements OnInit {
         validator: [Validation.passwordCheck('password', 'confirmPassword')],
       }
     );
+  }
+
+  get f(): { [key: string]: AbstractControl } {
+    return this.registerForm.controls;
+  }
+
+  submit() {
+    if (this.registerForm.invalid) {
+      return;
+    }
+
+    if (this.registerForm.valid) {
+      const body = {
+        username: this.registerForm.get('username')?.value,
+        apellido: this.registerForm.get('apellido')?.value,
+        email: this.registerForm.get('email')?.value,
+        password: this.registerForm.get('password')?.value,
+        confirmPassword: this.registerForm.get('confirmPassword')?.value,
+      };
+    }
   }
 }

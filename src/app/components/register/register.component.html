@@ -10,7 +10,7 @@
 </header>
 
 <div class="register">
-    <form class="formulario" [formGroup]="registerForm">
+    <form class="formulario" [formGroup]="registerForm" (ngSubmit)="submit">
         <h1>Registro</h1>
         <div class="form-nombre">
             <div class="etiqueta">
