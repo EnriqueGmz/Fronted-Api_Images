@@ -1,3 +1,4 @@
+import { HttpResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import {
   AbstractControl,
@@ -6,6 +7,7 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { UserService } from 'src/app/services/user.service';
 import Validation from 'src/app/utils/validation';
 
 @Component({
@@ -25,7 +27,14 @@ export class RegisterComponent implements OnInit {
   emailpattern =
     /^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$/;
 
-  constructor(private formBuilder: FormBuilder) {}
+  submitted = false;
+  success = false;
+  error = false;
+
+  constructor(
+    private formBuilder: FormBuilder,
+    private userService: UserService
+  ) {}
 
   ngOnInit(): void {
     this.registerForm = this.formBuilder.group(
@@ -56,6 +65,8 @@ export class RegisterComponent implements OnInit {
   }
 
   submit() {
+    this.submitted = true;
+
     if (this.registerForm.invalid) {
       return;
     }
@@ -68,6 +79,20 @@ export class RegisterComponent implements OnInit {
         password: this.registerForm.get('password')?.value,
         confirmPassword: this.registerForm.get('confirmPassword')?.value,
       };
+      this.userService.register(JSON.stringify(body)).subscribe(
+        (res: HttpResponse<any>) => {
+          if (res.status === 201) {
+            console.log(res.body);
+            this.success = true;
+          }
+        },
+        (res: HttpResponse<any>) => {
+          if (res.status === 400) {
+            console.log(res);
+            this.error = true;
+          }
+        }
+      );
     }
   }
 }
