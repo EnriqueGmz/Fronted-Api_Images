@@ -84,15 +84,22 @@ export class RegisterComponent implements OnInit {
           if (res.status === 201) {
             console.log(res.body);
             this.success = true;
+            this.error = false;
           }
         },
         (res: HttpResponse<any>) => {
           if (res.status === 400) {
             console.log(res);
             this.error = true;
+            this.success = false;
           }
         }
       );
     }
+  }
+
+  onReset(): void {
+    this.submitted = false;
+    this.registerForm.reset();
   }
 }
