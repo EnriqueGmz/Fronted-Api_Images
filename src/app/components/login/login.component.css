@@ -46,3 +46,98 @@ header {
   margin: 0;
   padding: 5px;
 }
+
+.login {
+  width: 25%;
+  margin: 140px auto;
+  background-color: #dbd6f2;
+  border-radius: 5px;
+  box-shadow: 13px 13px 20px #a89fd5, -13px -13px 20px #ffffff;
+}
+
+.login h1 {
+  display: flex;
+  justify-content: center;
+  height: 35px;
+  align-items: center;
+  background-color: #665ab5;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 16px;
+}
+
+.form-email {
+  text-align: center;
+}
+
+.form-email .etiqueta {
+  display: flex;
+  font-size: 15px;
+  color: #848484;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  margin-left: 10px;
+}
+
+.form-email input {
+  width: 90%;
+  height: 32px;
+  border: none;
+  border-radius: 5px;
+  color: #665ab5;
+  outline: none;
+}
+
+.form-password {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.form-password .etiqueta-pass {
+  display: flex;
+  font-size: 15px;
+  color: #848484;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  margin-left: 10px;
+}
+
+.form-password input {
+  width: 90%;
+  height: 32px;
+  border: none;
+  border-radius: 5px;
+  color: #665ab5;
+  outline: none;
+}
+
+.botones {
+  display: flex;
+  margin-top: 5px;
+}
+
+button {
+  width: 40%;
+  height: 25px;
+  margin: 5px auto;
+  background-color: #665ab5;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: rgba(57, 32, 71, 0.5);
+}
+
+input[type]:focus {
+  box-shadow: 0 1px 1px rgba(97, 38, 127, 0.472) inset,
+    0 0 8px rgba(91, 13, 111, 0.483);
+}
+
+::placeholder {
+  color: #59518d;
+  font-size: 12px;
+}
