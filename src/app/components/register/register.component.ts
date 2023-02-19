@@ -55,7 +55,7 @@ export class RegisterComponent implements OnInit {
         confirmPassword: ['', [Validators.required]],
       },
       {
-        validator: [Validation.passwordCheck('password', 'confirmPassword')],
+        validators: [Validation.passwordCheck('password', 'confirmPassword')],
       }
     );
   }

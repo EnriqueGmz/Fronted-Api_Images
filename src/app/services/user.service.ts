@@ -16,4 +16,16 @@ export class UserService {
       headers: { 'content-type': 'application/json' },
     });
   }
+
+  login(body: string): Observable<any> {
+    return this.http.post(this.URI + '/login', body, {
+      observe: 'response',
+      headers: { 'content-type': 'aplication/json' },
+      withCredentials: true,
+    });
+  }
+
+  refresh(): Observable<any> {
+    return this.http.post(this.URI + '/refresh', {}, { withCredentials: true });
+  }
 }
