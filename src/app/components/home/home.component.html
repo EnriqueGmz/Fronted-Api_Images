@@ -14,7 +14,12 @@
             <input type="checkbox" id="boton_menu" class="nav_input">
 
             <ul class="nav_menu">
-                <div>
+                <div *ngIf="logged" class="logged-in">
+                    <li><a>{{userLogged}}</a></li>
+                    <li><a>Upload</a></li>
+                    <li><a>LogOut</a></li>
+                </div>
+                <div *ngIf="!logged" class="no-logged-in">
                     <li><a routerLink="/login">Login</a></li>
                     <li><a routerLink="/register">📝Registrate</a></li>
                 </div>
@@ -22,5 +27,3 @@
         </nav>
     </div>
 </header>
-
-<h1>{{userLogged}}</h1>
