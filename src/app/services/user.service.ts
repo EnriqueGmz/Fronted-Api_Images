@@ -19,7 +19,7 @@ export class UserService {
 
   login(body: string): Observable<any> {
     return this.http.post(this.URI + '/login', body, {
-      headers: { 'content-type': 'aplication/json' },
+      headers: { 'content-type': 'application/json' },
       withCredentials: true,
     });
   }

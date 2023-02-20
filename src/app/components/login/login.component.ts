@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
   emailpattern =
     /^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$/;
 
-  submited = false;
+  submitted = false;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -51,7 +51,7 @@ export class LoginComponent implements OnInit {
   }
 
   submit() {
-    this.submited = true;
+    this.submitted = true;
 
     if (this.loginForm.invalid) {
       return;
@@ -65,8 +65,9 @@ export class LoginComponent implements OnInit {
 
       this.userService.login(JSON.stringify(body)).subscribe((res: any) => {
         AuthInterceptor.accessToken = res.token;
-        this.router.navigate(['/']);
-        console.log(res.body);
+        // this.router.navigate(['/']);
+        console.log(body);
+        console.log(this.submitted);
       });
     }
   }

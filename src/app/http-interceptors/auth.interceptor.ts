@@ -4,9 +4,8 @@ import {
   HttpHandler,
   HttpEvent,
   HttpInterceptor,
-  HttpClient,
-  HttpResponse,
   HttpErrorResponse,
+  HttpClient,
 } from '@angular/common/http';
 import { catchError, Observable, switchMap, throwError } from 'rxjs';
 import { UserService } from '../services/user.service';
@@ -15,7 +14,8 @@ import { UserService } from '../services/user.service';
 export class AuthInterceptor implements HttpInterceptor {
   static accessToken = '';
   refresh = false;
-  constructor(private hhtp: HttpClient, private userService: UserService) {}
+
+  constructor(private http: HttpClient, private userservice: UserService) {}
 
   intercept(
     request: HttpRequest<unknown>,
@@ -31,7 +31,7 @@ export class AuthInterceptor implements HttpInterceptor {
       catchError((err: HttpErrorResponse) => {
         if (err.status === 401 && !this.refresh) {
           this.refresh = true;
-          return this.userService.refresh().pipe(
+          return this.userservice.refresh().pipe(
             switchMap((res: any) => {
               AuthInterceptor.accessToken = res.token;
               return next.handle(
