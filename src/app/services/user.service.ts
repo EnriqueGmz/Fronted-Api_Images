@@ -19,7 +19,6 @@ export class UserService {
 
   login(body: string): Observable<any> {
     return this.http.post(this.URI + '/login', body, {
-      observe: 'response',
       headers: { 'content-type': 'aplication/json' },
       withCredentials: true,
     });
@@ -27,5 +26,11 @@ export class UserService {
 
   refresh(): Observable<any> {
     return this.http.post(this.URI + '/refresh', {}, { withCredentials: true });
+  }
+
+  sesion(): Observable<any> {
+    return this.http.get(this.URI + '/protected', {
+      headers: { 'content-type': 'aplication/json' },
+    });
   }
 }

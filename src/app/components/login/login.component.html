@@ -9,19 +9,19 @@
     </div>
 </header>
 <div class="login">
-    <form action="" class="formulario">
+    <form [formGroup]="loginForm" class="formulario" (ngSubmit)="submit()">
         <h1>Bienvenido</h1>
         <div class="form-email">
             <label class="etiqueta">
                 Email:
             </label>
-            <input type="email" class="email" placeholder="mail@adress.com ">
+            <input type="email" formControlName="email" class="email" placeholder="mail@adress.com ">
         </div>
         <div class="form-password">
             <label class="etiqueta-pass">
                 Password:
             </label>
-            <input type="password" class="password" placeholder="mail@adress.com ">
+            <input type="password" formControlName="password" class="password" placeholder="mail@adress.com ">
         </div>
         <div class="botones">
             <button type="submit">Enviar</button>
