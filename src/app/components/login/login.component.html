@@ -11,17 +11,27 @@
 <div class="login">
     <form [formGroup]="loginForm" class="formulario" (ngSubmit)="submit()">
         <h1>Bienvenido</h1>
+        <div *ngIf="submitted && error" class="error">❌ Las credenciales no coinciden ❌</div>
+        <div *ngIf="submitted && error2" class="error">❌ El usuario no se encuentra registrado ❌</div>
         <div class="form-email">
             <label class="etiqueta">
                 Email:
             </label>
             <input type="email" formControlName="email" class="email" placeholder="mail@adress.com ">
+            <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
+                <div *ngIf="f['email'].errors['required']">El email es obligatorio</div>
+                <div *ngIf="f['email'].errors['pattern']">Email inválido</div>
+            </div>
         </div>
         <div class="form-password">
             <label class="etiqueta-pass">
                 Password:
             </label>
             <input type="password" formControlName="password" class="password" placeholder="mail@adress.com ">
+            <div *ngIf="submitted && f['password'].errors" class="invalid-feedback">
+                <div *ngIf="f['password'].errors['required']">Debe ingresar una contraseña</div>
+                <div *ngIf="f['password'].errors['minLength']">La contraseña debe tener mínimo 6 caracteres</div>
+            </div>
         </div>
         <div class="botones">
             <button type="submit">Enviar</button>

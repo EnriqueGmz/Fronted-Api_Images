@@ -141,3 +141,24 @@ input[type]:focus {
   color: #59518d;
   font-size: 12px;
 }
+
+div .invalid-feedback {
+  font-size: 12px;
+  color: rgb(223, 69, 61);
+  text-align: left;
+  margin-left: 12px;
+  margin-top: 5px;
+}
+
+.error {
+  border: 1px solid red;
+  border-radius: 5px;
+  text-align: center;
+  width: 70%;
+  margin: 10px auto;
+  padding: 4px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  color: #d8000c;
+  background-color: #ffbaba;
+}

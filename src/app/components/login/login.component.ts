@@ -1,3 +1,4 @@
+import { HttpErrorResponse, HttpResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import {
   AbstractControl,
@@ -25,6 +26,8 @@ export class LoginComponent implements OnInit {
     /^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$/;
 
   submitted = false;
+  error = false;
+  error2 = false;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -50,6 +53,10 @@ export class LoginComponent implements OnInit {
     });
   }
 
+  get f(): { [key: string]: AbstractControl } {
+    return this.loginForm.controls;
+  }
+
   submit() {
     this.submitted = true;
 
@@ -63,12 +70,25 @@ export class LoginComponent implements OnInit {
         password: this.loginForm.get('password').value,
       };
 
-      this.userService.login(JSON.stringify(body)).subscribe((res: any) => {
-        AuthInterceptor.accessToken = res.token;
-        // this.router.navigate(['/']);
-        console.log(body);
-        console.log(this.submitted);
-      });
+      this.userService.login(JSON.stringify(body)).subscribe(
+        (res: any) => {
+          AuthInterceptor.accessToken = res.token;
+          this.router.navigate(['/']);
+          console.log(body);
+        },
+        (res: HttpResponse<any>) => {
+          if (res.status === 400) {
+            console.log(this.error);
+            console.log(this.error);
+            this.error = true;
+            this.error2 = false;
+            console.log(body);
+          } else if (res.status === 403) {
+            this.error = false;
+            this.error2 = true;
+          }
+        }
+      );
     }
   }
 }
