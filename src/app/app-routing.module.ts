@@ -11,7 +11,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'images/new', component: ImageFormComponent },
-  { path: 'images/idimages', component: ImagePreviewComponent },
+  { path: 'images/:idimages', component: ImagePreviewComponent },
 ];
 
 @NgModule({
