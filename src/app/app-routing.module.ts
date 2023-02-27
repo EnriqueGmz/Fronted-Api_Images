@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
+import { ImageFormComponent } from './components/image-form/image-form.component';
+import { ImagePreviewComponent } from './components/image-preview/image-preview.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 
@@ -8,6 +10,8 @@ const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
+  { path: 'images/new', component: ImageFormComponent },
+  { path: 'images/idimages', component: ImagePreviewComponent },
 ];
 
 @NgModule({
