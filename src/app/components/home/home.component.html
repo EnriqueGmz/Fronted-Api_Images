@@ -16,7 +16,7 @@
             <ul class="nav_menu">
                 <div *ngIf="logged" class="logged-in">
                     <li><a>{{userLogged}}</a></li>
-                    <li><a>Upload</a></li>
+                    <li routerLink="/images/new"><a>Upload</a></li>
                     <li><a>LogOut</a></li>
                 </div>
                 <div *ngIf="!logged" class="no-logged-in">

@@ -1,1 +1,23 @@
-<p>image-form works!</p>
+<header>
+    <div class="container">
+        <div class="logo">
+            <img src="assets/Logo.png" alt="anime" title="animes">
+            <ul class="home">
+                <a routerLink="/">WallPapers</a>
+            </ul>
+        </div>
+    </div>
+</header>
+
+<div class="image-form">
+    <form class="card" (submit)="uploadImage(title, descriptionImage)">
+        <input placeholder="Título" #title>
+        <textarea placeholder="Descripción de la imagen" #descriptionImage></textarea>
+        <img [src]="imgURL" (click)="imageInput.click()">
+        <div class="botones">
+            <button class="upload">Upload</button>
+            <input type="file" placeholder="seleccionar" (change)="selectImage($event)" #imageInput>
+            <div class="select" (click)="imageInput.click()">Seleccionar</div>
+        </div>
+    </form>
+</div>
