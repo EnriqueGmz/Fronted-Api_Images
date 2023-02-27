@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Image } from '../interfaces/image';
 
 @Injectable({
   providedIn: 'root',
@@ -16,5 +18,9 @@ export class ImagesService {
     formData.append('image', image);
 
     return this.http.post(this.URI, formData);
+  }
+
+  getImages(): Observable<any> {
+    return this.http.get<Image[]>(this.URI);
   }
 }

@@ -27,3 +27,17 @@
         </nav>
     </div>
 </header>
+
+<div class="container-body">
+    <div class="images-gallery">
+        <div class="card" *ngFor="let image of this.images">
+            <div class="card-title">
+                Título: {{image.title}}
+            </div>
+            <img [src]="'http://localhost:4000/' + image.image" alt="imagenes">
+            <div class="card-description">
+                Descripción: {{image.descriptionImage}}
+            </div>
+        </div>
+    </div>
+</div>
