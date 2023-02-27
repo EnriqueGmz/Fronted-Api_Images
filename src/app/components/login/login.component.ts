@@ -79,7 +79,6 @@ export class LoginComponent implements OnInit {
         (res: HttpResponse<any>) => {
           if (res.status === 400) {
             console.log(this.error);
-            console.log(this.error);
             this.error = true;
             this.error2 = false;
             console.log(body);

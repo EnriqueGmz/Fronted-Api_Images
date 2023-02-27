@@ -10,6 +10,8 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AuthInterceptor } from './http-interceptors/auth.interceptor';
+import { ImageFormComponent } from './components/image-form/image-form.component';
+import { ImagePreviewComponent } from './components/image-preview/image-preview.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +19,8 @@ import { AuthInterceptor } from './http-interceptors/auth.interceptor';
     HomeComponent,
     RegisterComponent,
     LoginComponent,
+    ImageFormComponent,
+    ImagePreviewComponent,
   ],
   imports: [
     BrowserModule,
